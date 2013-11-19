@@ -1,0 +1,6 @@
+<% @posts.each do |post| %>
+  <div class="post">
+    <%= link_to post.title, post_path(post) %>
+    <p><%= post.text.first 10 %>...</p>
+  </div>
+<% end %>

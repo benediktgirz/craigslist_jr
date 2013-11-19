@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Craigslist</title>
+  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+<div id="flash">
+  <% if flash[:error] %>
+    <div class="error"><%= flash[:error] %></div>
+  <% end %>
+
+  <% if flash[:notice] %>
+    <div class="notice"><%= flash[:notice] %></div>
+  <% end %>
+</div>
+
+
+<%= link_to "Posts", posts_path %>
+<%= link_to "Categories", categories_path %>
+
+
+<%= yield %>
+
+</body>
+</html>

@@ -1,0 +1,19 @@
+<h1><%= @post.title %></h1>
+<h2>Location: <%=@post.location%></h2>
+<h3>Created By: <%=@post.user_id%></h3>
+<p><%= @post.text %></p>
+
+<p>Delete <%=@post.title%></p>
+<%= button_to "Delete that awful post", {:controller => :posts,
+      :action => 'destroy', :id => @post.id }, :method => :delete %>
+
+
+ <h3>Update this post now</h3>
+
+ <%= form_for @post, url: {action: "update"}, html: {class: "update_post"} do |f| %>
+  <%= f.text_field :title %>
+  <%= f.text_field :location %>
+  <%= f.text_area :text, size: "60x12" %>
+  <%= f.submit "Update it please" %>
+<% end %>
+
